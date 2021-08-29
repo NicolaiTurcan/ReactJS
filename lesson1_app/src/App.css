@@ -1,0 +1,25 @@
+* {
+  margin: 0 auto;
+}
+
+.App {
+  background-color: #5a795a;
+  min-height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App h3 {
+  padding: 25px;
+}
+
+.message {
+  font-size: 20px;
+  font-weight: 700;
+}
+/*# sourceMappingURL=App.css.map */

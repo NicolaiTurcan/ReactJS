@@ -1,0 +1,17 @@
+*{
+    margin: 0 auto;
+}
+.App{
+    background-color: rgb(90, 121, 90);
+    min-height:  500px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    h3{
+        padding: 25px;
+    }
+}
+.message{
+    font-size: 20px;
+    font-weight: 700;
+}
