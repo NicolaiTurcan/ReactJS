@@ -14,8 +14,23 @@
           align-items: center;
 }
 
-.App h3 {
+.App header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+}
+
+.App header h3 {
   padding: 25px;
+}
+
+.App header .chat {
+  width: 100%;
 }
 
 .message {

@@ -2,7 +2,10 @@ import './App.css';
 
 function Message(props) {
     return (
-        <p className='message'>{props.text}</p>
+        <div className='chat_element'>
+            <p className='message'>{props.text}</p>
+            <p className='messageAuthor'>{props.author}</p>
+        </div>
     )
 }
 
