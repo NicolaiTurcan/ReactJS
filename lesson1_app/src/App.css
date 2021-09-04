@@ -4,7 +4,7 @@
 
 .App {
   background-color: #5a795a;
-  min-height: 500px;
+  min-height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,19 +22,97 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 100%;
+  width: 77%;
+  border: 2px solid;
+  border-radius: 2rem;
+  padding: 22px;
 }
 
 .App header h3 {
-  padding: 25px;
+  padding: 7px;
 }
 
-.App header .chat {
+.App header .wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
 
-.message {
-  font-size: 20px;
+.App header .wraper .ChatList {
+  border-radius: 1rem;
+  -ms-flex-preferred-size: 20%;
+      flex-basis: 20%;
+}
+
+.App header .wraper .ChatList ul {
+  border-radius: 1rem;
+  background-color: #4f7e84;
+}
+
+.App header .wraper .chatWrap {
+  width: 72%;
+}
+
+.App header .wraper .chatWrap .chat {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.App header .wraper .chatWrap .chat_element {
+  width: 82%;
+  border: 1px solid #1e3320;
+  margin: 2px;
+  border-radius: 2rem;
+  padding: 5px 30px;
+}
+
+.App header .wraper .chatWrap .chat_element p {
+  text-align: start;
+}
+
+.App header .wraper .chatWrap .chat_element .messageAuthor {
+  font-size: 18px;
   font-weight: 700;
+}
+
+.App header .wraper .chatWrap form {
+  width: 100%;
+}
+
+.App header .wraper .chatWrap form .messageImput {
+  width: 84%;
+  margin-top: 20px;
+}
+
+.App header .wraper .chatWrap form .messageImput .MuiFormControl-root {
+  width: 100%;
+}
+
+.App header .wraper .chatWrap form .messageImput .MuiFilledInput-root {
+  width: 100%;
+}
+
+.App header .wraper .chatWrap form .sendButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 84%;
+  margin-top: 15px;
 }
 /*# sourceMappingURL=App.css.map */
