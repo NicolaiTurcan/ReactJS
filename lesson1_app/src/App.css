@@ -2,6 +2,11 @@
   margin: 0 auto;
 }
 
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
 .App {
   background-color: #5a795a;
   min-height: 100vh;
@@ -51,6 +56,16 @@
 .App header .wraper .ChatList ul {
   border-radius: 1rem;
   background-color: #4f7e84;
+}
+
+.App header .wraper .ChatList a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .App header .wraper .chatWrap {

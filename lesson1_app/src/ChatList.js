@@ -6,6 +6,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -30,14 +31,16 @@ function ChatList(props) {
             <List dense className={classes.root}>
                 {chatList.map((value) => {
                     return (
-                        <ListItem key={value.id} button>
-                            <ListItemAvatar>
-                                <Avatar
-                                    alt={`Avatar n°${value.id + 1}`}
-                                    src={`/static/images/avatar/${value.id + 1}.jpg`}
-                                />
-                            </ListItemAvatar>
-                            <ListItemText id={value.id} primary={value.name} />
+                        <ListItem key={value.id} button >
+                            <Link to={`/chats/${value.id}`}>
+                                <ListItemAvatar>
+                                    <Avatar
+                                        alt={`Avatar n°${value.id + 1}`}
+                                        src={`/static/images/avatar/${value.id + 1}.jpg`}
+                                    />
+                                </ListItemAvatar>
+                                <ListItemText id={value.id} primary={value.name} />
+                            </Link>
                         </ListItem>
                     );
                 })}

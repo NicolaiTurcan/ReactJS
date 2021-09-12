@@ -1,6 +1,10 @@
 *{
     margin: 0 auto;
 }
+a{
+    text-decoration: inherit;
+    color: inherit;
+}
 .App{
     background-color: rgb(90, 121, 90);
     min-height:  100vh;
@@ -27,6 +31,11 @@
                 ul{
                     border-radius: 1rem;
                     background-color: #4f7e84;
+                }
+                a{
+                    display: flex;
+                    width: 100%;
+                    align-items: center;
                 }
             }
             .chatWrap{
