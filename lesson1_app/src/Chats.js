@@ -36,7 +36,7 @@ function Chats() {
 
   useEffect(() => {
     let timeout = setTimeout(() => {
-      if (!!chatId && allMessages[chatId].length !== 0 && allMessages[chatId][allMessages[chatId].length - 1].author !== 'Bot') {
+      if (!!chatId && allMessages[chatId] && allMessages[chatId].length !== 0 && allMessages[chatId][allMessages[chatId].length - 1].author !== 'Bot') {
         setAllMessages((prevState) => ({
           ...prevState,
           [chatId]: [
@@ -54,7 +54,7 @@ function Chats() {
         <div className='wraper'>
           <ChatList />
           <div className='chatWrap'>
-            {!!chatId && (
+            {!!chatId && allMessages[chatId] && (
               <>
                 <div className="chat">
                   {allMessages[chatId].map((message, i) =>
