@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
+import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
+import { Button } from '@material-ui/core';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addChat, deleteChat } from './store/chats/actions'
+import { addChatMes, deleteChatMes } from './store/chatsMess/actions'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,13 +22,27 @@ const useStyles = makeStyles((theme) => ({
 
 function ChatList(props) {
     const classes = useStyles();
-    const [chatList, setChatList] = useState(
-        [
-            { id: 1, name: "Vovan" },
-            { id: 2, name: "Kolian" },
-            { id: 3, name: "Zinaida Ivanovna" },
-            { id: 4, name: "Andron" }
-        ]);
+
+    const dispatch = useDispatch();
+    const chatList = useSelector((state) => state.chats.chats);
+    const [chatName, setChatName] = useState('');
+
+    const handleChange = (event) => {
+        setChatName(event.target.value);
+    };
+
+    const handleClick = (event) => {
+        let newChatId = Date.now();
+        event.preventDefault();
+        dispatch(addChat(newChatId, chatName));
+        dispatch(addChatMes(newChatId));
+        setChatName('');
+    };
+
+    const handleDeleteClick = (event) => {
+        dispatch(deleteChat(+(event.target.id)));
+        dispatch(deleteChatMes(+(event.target.id)));
+    }
 
     return (
         <div className='ChatList'>
@@ -41,10 +59,15 @@ function ChatList(props) {
                                 </ListItemAvatar>
                                 <ListItemText id={value.id} primary={value.name} />
                             </Link>
+                            <button onClick={handleDeleteClick} id={value.id}>x</button>
                         </ListItem>
                     );
                 })}
             </List>
+            <form onSubmit={handleClick}>
+                <input type="text" value={chatName} onChange={handleChange}></input>
+                <Button variant="contained" onClick={handleClick}>Add Chat</Button>
+            </form>
         </div>
     )
 }

@@ -56,6 +56,7 @@ a {
 .App header .wraper .ChatList ul {
   border-radius: 1rem;
   background-color: #4f7e84;
+  margin-bottom: 10px;
 }
 
 .App header .wraper .ChatList a {
@@ -66,6 +67,10 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.App header .wraper .ChatList form input {
+  width: 150px;
 }
 
 .App header .wraper .chatWrap {
@@ -92,6 +97,9 @@ a {
   margin: 2px;
   border-radius: 2rem;
   padding: 5px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .App header .wraper .chatWrap .chat_element p {

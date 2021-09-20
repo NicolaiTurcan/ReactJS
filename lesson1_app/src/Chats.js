@@ -5,27 +5,25 @@ import { useParams } from 'react-router-dom';
 import React, { useEffect, useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
+import { useDispatch, useSelector } from 'react-redux';
+import { addMessage } from './store/chatsMess/actions';
 
-const startMess = { 1: [], 2: [], 3: [], 4: [] };
+
 
 function Chats() {
-
   const params = useParams();
   let chatId = +params.chatsId;
+  const chatMess = useSelector((state) => state.chatsMess.messages);
+  const author = useSelector((state) => state.profile.name);
+  const dispatch = useDispatch();
 
   const handleClick = (event) => {
-    event.preventDefault();
-    setAllMessages((prevState) => ({
-      ...prevState,
-      [chatId]: [
-        ...prevState[chatId], { text: newMessage, author: 'User1' }
-      ]
-    }));
+    event.preventDefault(chatId,);
+
+    dispatch(addMessage(chatId, newMessage, author));
     setNewMessage('');
     inputRef.current.focus();
   };
-
-  const [allMessages, setAllMessages] = useState(startMess);
 
   const inputRef = useRef();
 
@@ -36,17 +34,12 @@ function Chats() {
 
   useEffect(() => {
     let timeout = setTimeout(() => {
-      if (!!chatId && allMessages[chatId] && allMessages[chatId].length !== 0 && allMessages[chatId][allMessages[chatId].length - 1].author !== 'Bot') {
-        setAllMessages((prevState) => ({
-          ...prevState,
-          [chatId]: [
-            ...prevState[chatId], { text: "Test Message after 1,5 sec.", author: 'Bot' }
-          ]
-        }));
+      if (!!chatId && chatMess[chatId] && chatMess[chatId].length !== 0 && chatMess[chatId][chatMess[chatId].length - 1].author !== 'Bot') {
+        dispatch(addMessage(chatId, "Test Message after 1,5 sec.", 'Bot'));
       }
     }, 1500);
     return () => clearTimeout(timeout);
-  }, [allMessages]);
+  }, [chatMess]);
 
   return (
     <div className="App">
@@ -54,11 +47,11 @@ function Chats() {
         <div className='wraper'>
           <ChatList />
           <div className='chatWrap'>
-            {!!chatId && allMessages[chatId] && (
+            {!!chatId && !!chatMess[chatId] && (
               <>
                 <div className="chat">
-                  {allMessages[chatId].map((message, i) =>
-                    <Message key={i} text={message.text} author={message.author}></Message>
+                  {chatMess[chatId].map((message, i) =>
+                    <Message key={i} text={message.text} author={message.author} id={message.id}></Message>
                   )}
                 </div>
                 <form onSubmit={handleClick}>

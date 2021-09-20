@@ -31,11 +31,19 @@ a{
                 ul{
                     border-radius: 1rem;
                     background-color: #4f7e84;
+                    margin-bottom: 10px;
                 }
                 a{
                     display: flex;
                     width: 100%;
                     align-items: center;
+                }
+                form{
+                    input{
+                        width: 150px;
+                    }
+                    button{
+                    }
                 }
             }
             .chatWrap{
@@ -52,6 +60,7 @@ a{
                     margin: 2px;
                     border-radius: 2rem;
                     padding: 5px 30px;
+                    display: flex;
                     p{
                         text-align: start;
 
