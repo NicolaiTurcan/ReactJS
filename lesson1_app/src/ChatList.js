@@ -11,6 +11,7 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addChat, deleteChat } from './store/chats/actions'
 import { addChatMes, deleteChatMes } from './store/chatsMess/actions'
+import { chatLists } from './store/chatsMess/selectors';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -24,7 +25,7 @@ function ChatList(props) {
     const classes = useStyles();
 
     const dispatch = useDispatch();
-    const chatList = useSelector((state) => state.chats.chats);
+    const chatList = useSelector(chatLists);
     const [chatName, setChatName] = useState('');
 
     const handleChange = (event) => {
@@ -43,6 +44,7 @@ function ChatList(props) {
         dispatch(deleteChat(+(event.target.id)));
         dispatch(deleteChatMes(+(event.target.id)));
     }
+
 
     return (
         <div className='ChatList'>

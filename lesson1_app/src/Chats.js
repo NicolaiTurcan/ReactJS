@@ -2,25 +2,26 @@ import './App.css';
 import Message from './Message';
 import ChatList from './ChatList';
 import { useParams } from 'react-router-dom';
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
-import { addMessage } from './store/chatsMess/actions';
+import { addChatMesReplay } from './store/chatsMess/actions';
+import { chatMessage, messageAuthor } from './store/chats/selectors';
 
 
 
 function Chats() {
   const params = useParams();
   let chatId = +params.chatsId;
-  const chatMess = useSelector((state) => state.chatsMess.messages);
-  const author = useSelector((state) => state.profile.name);
+  const chatMess = useSelector(chatMessage);
+  const author = useSelector(messageAuthor);
   const dispatch = useDispatch();
 
   const handleClick = (event) => {
     event.preventDefault(chatId,);
 
-    dispatch(addMessage(chatId, newMessage, author));
+    dispatch(addChatMesReplay(chatId, newMessage, author));
     setNewMessage('');
     inputRef.current.focus();
   };
@@ -31,15 +32,6 @@ function Chats() {
   const handleChange = (event) => {
     setNewMessage(event.target.value);
   };
-
-  useEffect(() => {
-    let timeout = setTimeout(() => {
-      if (!!chatId && chatMess[chatId] && chatMess[chatId].length !== 0 && chatMess[chatId][chatMess[chatId].length - 1].author !== 'Bot') {
-        dispatch(addMessage(chatId, "Test Message after 1,5 sec.", 'Bot'));
-      }
-    }, 1500);
-    return () => clearTimeout(timeout);
-  }, [chatMess]);
 
   return (
     <div className="App">

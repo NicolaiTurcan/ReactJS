@@ -20,3 +20,13 @@ export const deleteChatMes = (chatId) => ({
     type: DELETE_CHATMES,
     payload: chatId,
 });
+let timeout;
+export const addChatMesReplay = (chatId, text, author) => (dispatch) => {
+    dispatch(addMessage(chatId, text, author));
+    clearTimeout(timeout);
+    if (author !== 'Bot') {
+        timeout = setTimeout(() => {
+            dispatch(addMessage(chatId, "Test Message after 1,5 sec.", 'Bot'));
+        }, 1500);
+    }
+};

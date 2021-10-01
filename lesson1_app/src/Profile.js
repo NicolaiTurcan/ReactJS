@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeName } from "./store/profile/actions";
+import { userName } from "./store/profile/selectors";
 
 const Profile = () => {
     const [value, setValue] = useState('');
 
     const dispatch = useDispatch();
-    const name = useSelector((state) => state.profile.name)
+    const name = useSelector(userName);
 
     const handleSubmit = (event) => {
         event.preventDefault();
