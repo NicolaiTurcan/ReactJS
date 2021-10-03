@@ -43,6 +43,7 @@ a{
                         width: 150px;
                     }
                     button{
+                        margin-left: 5px;
                     }
                 }
             }
@@ -88,6 +89,29 @@ a{
                         width: 84%;
                         margin-top: 15px;
                     }
+                }
+            }
+        }
+    }
+    
+}
+.container{
+    display: flex;
+    justify-content: center;
+    max-width: 1200px;
+    .article_section{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        .article_element{
+            max-width: 320px;
+            margin: 15px 0;
+            .article_img{
+                img{
+                    max-width: 320px;
+                    height: 180px;
+                    width: 100%;
                 }
             }
         }

@@ -73,6 +73,10 @@ a {
   width: 150px;
 }
 
+.App header .wraper .ChatList form button {
+  margin-left: 5px;
+}
+
 .App header .wraper .chatWrap {
   width: 72%;
 }
@@ -137,5 +141,38 @@ a {
           justify-content: space-between;
   width: 84%;
   margin-top: 15px;
+}
+
+.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  max-width: 1200px;
+}
+
+.container .article_section {
+  margin-top: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.container .article_section .article_element {
+  max-width: 320px;
+  margin: 15px 0;
+}
+
+.container .article_section .article_element .article_img img {
+  max-width: 320px;
+  height: 180px;
+  width: 100%;
 }
 /*# sourceMappingURL=App.css.map */

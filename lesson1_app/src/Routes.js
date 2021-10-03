@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Chats from './Chats.js';
 import Home from './Home.js';
+import NewsPage from './NewsPage.js';
 import Profile from './Profile.js';
 
 const Routes = () => {
@@ -16,6 +17,9 @@ const Routes = () => {
                 </Route>
                 <Route path="/profile">
                     <Profile />
+                </Route>
+                <Route path="/newspage">
+                    <NewsPage />
                 </Route>
                 <Route>
                     <h3>404</h3>

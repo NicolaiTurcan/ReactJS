@@ -4,6 +4,7 @@ import storageSession from 'redux-persist/es/storage/session'
 import thunk from 'redux-thunk';
 import { chatsReducer } from './chats/reducer';
 import { chatsMessReducer } from './chatsMess/reducer';
+import { newsReducer } from './newsPage/reducer';
 import { profileReducer } from './profile/reducer';
 
 // создаем объект конфигурации для persist
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     profile: profileReducer,
     chats: chatsReducer,
     chatsMess: chatsMessReducer,
+    articles: newsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -26,7 +28,6 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 export const store = createStore(
     persistedReducer,
     composeEnhancers(applyMiddleware(thunk))
-    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
 // создаем persistor
