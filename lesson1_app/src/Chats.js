@@ -1,13 +1,14 @@
-import './App.css';
 import Message from './Message';
 import ChatList from './ChatList';
 import { useParams } from 'react-router-dom';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import { useDispatch, useSelector } from 'react-redux';
-import { addChatMesReplay } from './store/chatsMess/actions';
+import { addMessageFb, initMessages } from './store/chatsMess/actions';
 import { chatMessage, messageAuthor } from './store/chats/selectors';
+import './App.css';
+import { initChats } from './store/chats/actions';
 
 
 
@@ -17,32 +18,38 @@ function Chats() {
   const chatMess = useSelector(chatMessage);
   const author = useSelector(messageAuthor);
   const dispatch = useDispatch();
-
-  const handleClick = (event) => {
-    event.preventDefault(chatId,);
-
-    dispatch(addChatMesReplay(chatId, newMessage, author));
-    setNewMessage('');
-    inputRef.current.focus();
-  };
-
   const inputRef = useRef();
 
   const [newMessage, setNewMessage] = useState('');
+
   const handleChange = (event) => {
     setNewMessage(event.target.value);
   };
 
+  useEffect(() => {
+    dispatch(initChats());
+    dispatch(initMessages());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleClick = (event) => {
+    event.preventDefault();
+    dispatch(addMessageFb(newMessage, author, chatId));
+    setNewMessage('');
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <h2>Chats</h2>
+      <div className="app__header">
         <div className='wraper'>
           <ChatList />
           <div className='chatWrap'>
-            {!!chatId && !!chatMess[chatId] && (
+            {!!chatId && (
               <>
                 <div className="chat">
-                  {chatMess[chatId].map((message, i) =>
+                  {(Object.values(chatMess[chatId] || {}) || []).map((message, i) =>
                     <Message key={i} text={message.text} author={message.author} id={message.id}></Message>
                   )}
                 </div>
@@ -60,7 +67,7 @@ function Chats() {
             )}
           </div>
         </div>
-      </header>
+      </div>
     </div>
   );
 }

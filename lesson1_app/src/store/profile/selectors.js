@@ -1,1 +1,0 @@
-export const userName = (state) => state.profile.name;

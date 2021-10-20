@@ -1,32 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { auth, signOut } from "./services/firebase";
+import { initUserName, addUserNameFb } from "./store/profile/actions";
 import { useDispatch, useSelector } from "react-redux";
-import { changeName } from "./store/profile/actions";
-import { userName } from "./store/profile/selectors";
+import { messageAuthor } from "./store/chats/selectors";
 
 const Profile = () => {
-    const [value, setValue] = useState('');
-
     const dispatch = useDispatch();
-    const name = useSelector(userName);
-
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        dispatch(changeName(value));
-        setValue('');
-    };
+    const [value, setValue] = useState('');
+    const newUserName = useSelector(messageAuthor);
 
     const handleChange = (event) => {
         setValue(event.target.value);
     };
 
+    useEffect(() => {
+        dispatch(initUserName());
+    }, []);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setValue("");
+        dispatch(addUserNameFb(value));
+    };
+
+    const handleLogout = async () => {
+        try {
+            await signOut();
+        } catch (erorr) {
+            console.log(erorr);
+        }
+    }
+
     return (
         <>
-            <h3>Profile Page</h3>
-            <h3>Your Name is: {name}</h3>
-            <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="Your Name" value={value} onChange={handleChange}></input>
-                <button type="submit">Send</button>
-            </form>
+            <div className="container">
+                <div className="profile__page">
+                    <h2>Profile Page</h2>
+                    <div className="profile__info">
+                        <h3>Your Name is: {newUserName[0]}</h3>
+                        <form onSubmit={handleSubmit}>
+                            <input type="text" placeholder="Your Name" value={value} onChange={handleChange}></input>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </div>
+                    <button type='button' className="logout" onClick={handleLogout}>Logout</button>
+                </div>
+            </div>
         </>
     );
 }

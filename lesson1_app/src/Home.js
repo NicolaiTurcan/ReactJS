@@ -1,24 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import './App.css';
 
 function Home() {
     return (
-        <div>
-            <h3>Home Page</h3>
-            <ul>
-                <li>
-                    <Link to="/profile">Profile</Link>
-                </li>
-                <li>
-                    <Link to="/chats">Chats</Link>
-                </li>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/newspage">News Page</Link>
-                </li>
-            </ul>
+        <div className="container">
+            <div className="profile__page">
+                <h2>Home Page</h2>
+            </div>
         </div>
 
     );

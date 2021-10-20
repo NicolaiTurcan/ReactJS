@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import './App.css'
 import { CircularProgress } from "@material-ui/core";
 import { useDispatch, useSelector } from "react-redux";
 import { getArticles } from "./store/newsPage/actions";
 import { selectorArticles, selectorArticlesError, selectorArticlesLoading } from "./store/newsPage/selectors";
+import './App.css'
 
 function NewPage() {
     const dispatch = useDispatch();
@@ -17,6 +17,7 @@ function NewPage() {
 
     useEffect(() => {
         reload();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     return (

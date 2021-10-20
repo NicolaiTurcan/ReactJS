@@ -1,4 +1,3 @@
-import './App.css'
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -9,9 +8,9 @@ import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { addChat, deleteChat } from './store/chats/actions'
-import { addChatMes, deleteChatMes } from './store/chatsMess/actions'
+import { addChatFb, deleteChatsFb } from './store/chats/actions'
 import { chatLists } from './store/chatsMess/selectors';
+import './App.css'
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function ChatList(props) {
+function ChatList() {
     const classes = useStyles();
 
     const dispatch = useDispatch();
@@ -35,14 +34,13 @@ function ChatList(props) {
     const handleClick = (event) => {
         let newChatId = Date.now();
         event.preventDefault();
-        dispatch(addChat(newChatId, chatName));
-        dispatch(addChatMes(newChatId));
+        dispatch(addChatFb(newChatId, chatName))
         setChatName('');
+        console.log(chatList)
     };
 
     const handleDeleteClick = (event) => {
-        dispatch(deleteChat(+(event.target.id)));
-        dispatch(deleteChatMes(+(event.target.id)));
+        dispatch(deleteChatsFb(+(event.target.id)));
     }
 
 

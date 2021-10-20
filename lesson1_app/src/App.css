@@ -7,19 +7,10 @@ a {
   color: inherit;
 }
 
-.App {
-  background-color: #5a795a;
+.app {
+  background: -webkit-gradient(linear, left bottom, left top, from(#62d6d7), to(#f6d48d));
+  background: linear-gradient(0deg, #62d6d7 0%, #f6d48d 100%);
   min-height: 100vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.App header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -27,17 +18,24 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: center;
+}
+
+.app .app__header {
+  height: 100%;
+  margin-top: 35px;
   width: 77%;
+  max-width: 1200px;
   border: 2px solid;
   border-radius: 2rem;
   padding: 22px;
 }
 
-.App header h3 {
+.app .app__header h3 {
   padding: 7px;
 }
 
-.App header .wraper {
+.app .app__header .wraper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,19 +45,19 @@ a {
   width: 100%;
 }
 
-.App header .wraper .ChatList {
+.app .app__header .wraper .ChatList {
   border-radius: 1rem;
   -ms-flex-preferred-size: 20%;
       flex-basis: 20%;
 }
 
-.App header .wraper .ChatList ul {
+.app .app__header .wraper .ChatList ul {
   border-radius: 1rem;
-  background-color: #4f7e84;
+  background-color: #9fae7d;
   margin-bottom: 10px;
 }
 
-.App header .wraper .ChatList a {
+.app .app__header .wraper .ChatList a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -69,19 +67,20 @@ a {
           align-items: center;
 }
 
-.App header .wraper .ChatList form input {
+.app .app__header .wraper .ChatList form input {
   width: 150px;
 }
 
-.App header .wraper .ChatList form button {
+.app .app__header .wraper .ChatList form button {
+  margin-top: 10px;
   margin-left: 5px;
 }
 
-.App header .wraper .chatWrap {
+.app .app__header .wraper .chatWrap {
   width: 72%;
 }
 
-.App header .wraper .chatWrap .chat {
+.app .app__header .wraper .chatWrap .chat {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -95,7 +94,7 @@ a {
           align-items: center;
 }
 
-.App header .wraper .chatWrap .chat_element {
+.app .app__header .wraper .chatWrap .chat_element {
   width: 82%;
   border: 1px solid #1e3320;
   margin: 2px;
@@ -106,33 +105,33 @@ a {
   display: flex;
 }
 
-.App header .wraper .chatWrap .chat_element p {
+.app .app__header .wraper .chatWrap .chat_element p {
   text-align: start;
 }
 
-.App header .wraper .chatWrap .chat_element .messageAuthor {
+.app .app__header .wraper .chatWrap .chat_element .messageAuthor {
   font-size: 18px;
   font-weight: 700;
 }
 
-.App header .wraper .chatWrap form {
+.app .app__header .wraper .chatWrap form {
   width: 100%;
 }
 
-.App header .wraper .chatWrap form .messageImput {
+.app .app__header .wraper .chatWrap form .messageImput {
   width: 84%;
   margin-top: 20px;
 }
 
-.App header .wraper .chatWrap form .messageImput .MuiFormControl-root {
+.app .app__header .wraper .chatWrap form .messageImput .MuiFormControl-root {
   width: 100%;
 }
 
-.App header .wraper .chatWrap form .messageImput .MuiFilledInput-root {
+.app .app__header .wraper .chatWrap form .messageImput .MuiFilledInput-root {
   width: 100%;
 }
 
-.App header .wraper .chatWrap form .sendButton {
+.app .app__header .wraper .chatWrap form .sendButton {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -143,6 +142,10 @@ a {
   margin-top: 15px;
 }
 
+.app h2 {
+  margin-top: 35px;
+}
+
 .container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -150,7 +153,10 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  max-width: 1200px;
+  min-height: 100vh;
+  padding: 0 4%;
+  background: -webkit-gradient(linear, left bottom, left top, from(#62d6d7), to(#f6d48d));
+  background: linear-gradient(0deg, #62d6d7 0%, #f6d48d 100%);
 }
 
 .container .article_section {
@@ -163,6 +169,7 @@ a {
           justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
+  max-width: 1200px;
 }
 
 .container .article_section .article_element {
@@ -174,5 +181,94 @@ a {
   max-width: 320px;
   height: 180px;
   width: 100%;
+}
+
+.container .profile__page {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 25px;
+  text-align: center;
+  max-width: 1200px;
+}
+
+.container .profile__page h2 {
+  font-size: 25px;
+  margin: 20px 0;
+}
+
+.container .profile__page .profile__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+.container .profile__page .logout {
+  margin-top: 15px;
+}
+
+.main__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: radial-gradient(circle, #8189b1 0%, #b34a5f 100%);
+  min-height: 150px;
+}
+
+.main__header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  min-width: 1200px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.main__header ul .inactive_class {
+  display: none;
+}
+
+.login_form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-top: 35px;
+  width: 320px;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 20px;
+  background: radial-gradient(circle, #eeaeca 0%, #577dab 100%);
+}
+
+.login_form input {
+  margin-top: 20px;
+  padding-left: 15px;
+  font-size: 18px;
+  width: 80%;
+  border: 1px solid;
+  border-radius: 5px;
+}
+
+.login_form button {
+  margin: 15px 10px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid;
 }
 /*# sourceMappingURL=App.css.map */

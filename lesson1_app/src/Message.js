@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router';
+import { deleteMessageWithFirebase } from './store/chatsMess/actions';
 import './App.css';
-import { deleteMessage } from './store/chatsMess/actions';
 
 function Message(props) {
     const params = useParams();
-    let chatId = +params.chatsId;
+    let chatId = params.chatsId;
     const dispatch = useDispatch();
     const handleDeleteClick = (event) => {
-        dispatch(deleteMessage(chatId, +(event.target.id)))
+        dispatch(deleteMessageWithFirebase(chatId, (event.target.id)));
     };
     return (
         <div className='chat_element'>
