@@ -4,16 +4,16 @@ export const GET_ARTICLES_PENDING = 'NEWS_PAGE::GET_ARTICLES_PENDING';
 export const GET_ARTICLES_SUCCESS = 'NEWS_PAGE::GET_ARTICLES_SUCCESS';
 export const GET_ARTICLES_FAILURE = 'NEWS_PAGE::GET_ARTICLES_FAILURE';
 
-const getArticlesPending = () => ({
+export const getArticlesPending = () => ({
     type: GET_ARTICLES_PENDING,
 });
 
-const getArticlesSuccess = (articles) => ({
+export const getArticlesSuccess = (articles) => ({
     type: GET_ARTICLES_SUCCESS,
     payload: articles,
 });
 
-const getArticlesFailure = (error) => ({
+export const getArticlesFailure = (error) => ({
     type: GET_ARTICLES_FAILURE,
     payload: error,
 });
