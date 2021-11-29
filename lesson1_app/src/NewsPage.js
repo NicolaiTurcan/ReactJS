@@ -33,9 +33,11 @@ function NewPage() {
                     (articles.map((article) => (
                         <article className='article_element' key={article.id}>
                             <div className='article_img'><img src={article.imageUrl} alt={article.id}></img></div>
-                            <h3>{article.title}</h3>
-                            <p>{article.summary}</p>
-                            <p>{article.newsSite}</p>
+                            <div className="article_info">
+                                <h3>{article.title}</h3>
+                                <p>{article.summary}</p>
+                                <p>{article.newsSite}</p>
+                            </div>
                         </article>
                     )))}
             </div>
