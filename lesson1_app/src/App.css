@@ -172,9 +172,8 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 20px;
@@ -195,6 +194,10 @@ a {
 
 .container .article_section .article_element .article_info {
   padding: 10px;
+}
+
+.container .article_section .article_element .article_info p {
+  margin-top: 7px;
 }
 
 .container .profile__page {

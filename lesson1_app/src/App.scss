@@ -4,9 +4,6 @@
     border: 0;
     box-sizing: border-box;
 }
-body._lock{
-    overflow: hidden;
-}
 a{
     text-decoration: inherit;
     color: inherit;
@@ -115,7 +112,7 @@ a{
     margin-top: 70px;
     .article_section{
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         flex-wrap: wrap;
         margin-top: 20px;
         gap: 20px;
@@ -132,6 +129,9 @@ a{
             }
             .article_info{
                 padding: 10px;
+                p{
+                    margin-top: 7px;
+                }
             }
         }
     }

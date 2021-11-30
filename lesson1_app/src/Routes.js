@@ -11,6 +11,7 @@ import { PublicRoute } from './PublicRoute.js';
 import { auth } from './services/firebase.js';
 
 const Routes = () => {
+    // Checking device touch or pc.mouce
     const isMobile = {
         Android: function () {
             return navigator.userAgent.match(/Android/i);
@@ -41,18 +42,23 @@ const Routes = () => {
     } else {
         document.body.classList.add('_pc');
     };
+
     const [active, setActive] = useState(false);
     const [authed, setAuthed] = useState(false);
 
-    const hanleActive = () =>{
+    const handleActive = () =>{
         if (active) {
             setActive(false);
-            document.body.classList.toggle('_lock');
         } else {
             setActive(true);
-            document.body.classList.toggle('_lock');
         }
     };
+    const menuLinks = document.querySelectorAll('.menu__link');
+        if (active){
+            menuLinks.forEach(menuLink => {
+                menuLink.addEventListener("click", handleActive);
+            });
+        };
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -71,24 +77,24 @@ const Routes = () => {
                 <div className="header__container">
                     <nav className={(active ? "menu__body _active" : "menu__body")}>
                         <ul className="menu__list">
-                            <li>
+                            <li className="menu__link">
                                 <Link to="/">Home</Link>
                             </li>
-                            <li className={(authed ? 'active_class' : 'inactive_class')}>
+                            <li className={(authed ? 'active_class menu__link' : 'inactive_class menu__link')}>
                                 <Link to="/profile">Profile</Link>
                             </li>
-                            <li className={(authed ? 'active_class' : 'inactive_class')}>
+                            <li className={(authed ? 'active_class menu__link' : 'inactive_class menu__link')}>
                                 <Link to="/chats">Chats</Link>
                             </li>
-                            <li>
+                            <li className="menu__link">
                                 <Link to="/newspage">News Page</Link>
                             </li>
-                            <li className={(authed ? 'inactive_class' : 'active_class')}>
+                            <li className={(authed ? 'inactive_class menu__link' : 'active_class menu__link')}>
                                 <Link to="/authorization">Login/SignUp</Link>
                             </li>
                         </ul>
                     </nav>
-                    <div className={(active ? "menu__icon _active" : "menu__icon")} onClick={hanleActive}>
+                    <div className={(active ? "menu__icon _active" : "menu__icon")} onClick={handleActive}>
                         <span></span>
                     </div>
                 </div>
