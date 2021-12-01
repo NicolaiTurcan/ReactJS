@@ -26,6 +26,14 @@ function Chats() {
     setNewMessage(event.target.value);
   };
 
+  const messagesEndRef = useRef(null);
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+  useEffect(() => {
+    scrollToBottom();
+  }, [newMessage]);
+
   useEffect(() => {
     dispatch(initChats());
     dispatch(initMessages());
@@ -42,18 +50,18 @@ function Chats() {
   return (
     <div className="app">
       <h2>Chats</h2>
-      <div className="app__header">
-        <div className='wraper'>
+      <div className="app__wraper">
           <ChatList />
-          <div className='chatWrap'>
+          <div className='app__chats'>
             {!!chatId && (
               <>
                 <div className="chat">
                   {(Object.values(chatMess[chatId] || {}) || []).map((message, i) =>
                     <Message key={i} text={message.text} author={message.author} id={message.id}></Message>
                   )}
+                  <div ref={messagesEndRef} />
                 </div>
-                <form onSubmit={handleClick}>
+                <form className="app__chat_send" onSubmit={handleClick}>
                   <div className="messageImput">
                     <TextField autoFocus id="outlined-basic" label="Message" variant="filled" value={newMessage} onChange={handleChange} inputRef={inputRef} />
                   </div>
@@ -66,7 +74,7 @@ function Chats() {
               </>
             )}
           </div>
-        </div>
+
       </div>
     </div>
   );

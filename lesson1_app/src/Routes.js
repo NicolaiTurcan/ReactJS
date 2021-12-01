@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-has-content */
 import { onAuthStateChanged } from '@firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
@@ -119,6 +120,20 @@ const Routes = () => {
                     <h3>404</h3>
                 </Route>
             </Switch>
+            <footer  className="main__footer">
+                <div class="footer__container">
+                    <div class="footer__container_text">
+                        <p>Designed & Built by Nicolai Turcan</p>
+                    </div>
+                    <nav class="content__nav">
+                        <a target="_blank" href="https://github.com/NicolaiTurcan" rel='noreferrer'class="icon-git"></a>
+                        <a href="https://www.facebook.com/nicolai.turcan.77" target="_blank" rel='noreferrer' class="icon-facebook"></a>
+                        <a href="https://t.me/joinchat/oqOhtw7D5gI3MGYy" target="_blank" rel='noreferrer' class="icon-telegram"></a>
+                        <a href="https://www.linkedin.com/in/nicolai-turcan-a261a0217/" rel='noreferrer' target="_blank"
+                            class="icon-linkedin"></a>
+                    </nav>
+                </div>
+            </footer>
         </BrowserRouter>
     )
 }

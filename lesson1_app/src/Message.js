@@ -12,11 +12,11 @@ function Message(props) {
     };
     return (
         <div className='chat_element'>
-            <div>
+            <div className='chat_block'>
                 <p className='messageAuthor'>{props.author}</p>
                 <p className='message'>{props.text}</p>
             </div>
-            <button onClick={handleDeleteClick} id={props.id}>x</button>
+            <button className='message_deleate' onClick={handleDeleteClick} id={props.id}>x</button>
         </div>
     )
 }

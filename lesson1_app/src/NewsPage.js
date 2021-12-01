@@ -23,7 +23,7 @@ function NewPage() {
     return (
         <div className="container">
             <div className='article_section'>
-                {loading && <CircularProgress />}
+                    {loading && <CircularProgress/>}
                 {error ? (
                     <>
                         <h3>Error: {error}</h3>

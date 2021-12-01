@@ -6,10 +6,6 @@
           box-sizing: border-box;
 }
 
-body._lock {
-  overflow: hidden;
-}
-
 a {
   text-decoration: inherit;
   color: inherit;
@@ -18,7 +14,7 @@ a {
 .app {
   background: -webkit-gradient(linear, left bottom, left top, from(#62d6d7), to(#f6d48d));
   background: linear-gradient(0deg, #62d6d7 0%, #f6d48d 100%);
-  min-height: 100vh;
+  min-height: 90vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -26,46 +22,62 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.app .app__header {
-  height: 100%;
-  margin-top: 35px;
-  width: 77%;
-  max-width: 1200px;
-  border: 2px solid;
-  border-radius: 2rem;
-  padding: 22px;
-}
-
-.app .app__header h3 {
-  padding: 7px;
-}
-
-.app .app__header .wraper {
+.app .app__wraper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 100%;
+  margin-top: 35px;
+  width: 98%;
+  height: 80vh;
+  border-radius: 1rem;
 }
 
-.app .app__header .wraper .ChatList {
+.app .app__wraper .app__chatList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-radius: 1rem;
-  -ms-flex-preferred-size: 20%;
-      flex-basis: 20%;
+  width: 20%;
+  padding: 5px 10px;
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.app .app__header .wraper .ChatList ul {
+.app .app__wraper .app__chatList ul {
   border-radius: 1rem;
-  background-color: #9fae7d;
+  background: transparent;
   margin-bottom: 10px;
+  height: 95%;
+  overflow: scroll;
 }
 
-.app .app__header .wraper .ChatList a {
+.app .app__wraper .app__chatList ul .MuiListItem-button {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.app .app__wraper .app__chatList ul .chat__button {
+  padding: 4px 7px;
+  border-radius: 3px;
+}
+
+.app .app__wraper .app__chatList a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,21 +87,49 @@ a {
           align-items: center;
 }
 
-.app .app__header .wraper .ChatList form input {
-  width: 150px;
+.app .app__wraper .app__chatList .chatList__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 15px 0;
 }
 
-.app .app__header .wraper .ChatList form button {
-  margin-top: 10px;
+.app .app__wraper .app__chatList .chatList__form input {
+  font-size: 16px;
+  padding-left: 5px;
+  height: 27px;
+  width: 65%;
+  border-radius: 3px;
+}
+
+.app .app__wraper .app__chatList .chatList__form .chatList__button {
+  font-size: 16px;
+  padding: 5px;
   margin-left: 5px;
+  border-radius: 3px;
 }
 
-.app .app__header .wraper .chatWrap {
-  width: 72%;
+.app .app__wraper .app__chats {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 80%;
 }
 
-.app .app__header .wraper .chatWrap .chat {
-  width: 100%;
+.app .app__wraper .app__chats .chat {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -100,54 +140,81 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
 }
 
-.app .app__header .wraper .chatWrap .chat_element {
-  width: 82%;
-  border: 1px solid #1e3320;
-  margin: 2px;
-  border-radius: 2rem;
-  padding: 5px 30px;
+.app .app__wraper .app__chats .chat .chat_element {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 90%;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 5px;
+  margin: 2px;
+  padding: 5px;
 }
 
-.app .app__header .wraper .chatWrap .chat_element p {
+.app .app__wraper .app__chats .chat .chat_element .chat_block {
+  width: 90%;
+}
+
+.app .app__wraper .app__chats .chat .chat_element .chat_block p {
   text-align: start;
 }
 
-.app .app__header .wraper .chatWrap .chat_element .messageAuthor {
+.app .app__wraper .app__chats .chat .chat_element .chat_block .messageAuthor {
   font-size: 18px;
   font-weight: 700;
 }
 
-.app .app__header .wraper .chatWrap form {
-  width: 100%;
+.app .app__wraper .app__chats .chat .chat_element .message_deleate {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 3px;
 }
 
-.app .app__header .wraper .chatWrap form .messageImput {
-  width: 84%;
-  margin-top: 20px;
-}
-
-.app .app__header .wraper .chatWrap form .messageImput .MuiFormControl-root {
-  width: 100%;
-}
-
-.app .app__header .wraper .chatWrap form .messageImput .MuiFilledInput-root {
-  width: 100%;
-}
-
-.app .app__header .wraper .chatWrap form .sendButton {
+.app .app__wraper .app__chats .app__chat_send {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 84%;
-  margin-top: 15px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+
+.app .app__wraper .app__chats .app__chat_send .messageImput {
+  width: 90%;
+  margin-top: 20px;
+}
+
+.app .app__wraper .app__chats .app__chat_send .messageImput .MuiFormControl-root {
+  width: 100%;
+}
+
+.app .app__wraper .app__chats .app__chat_send .messageImput .MuiFilledInput-root {
+  width: 100%;
+}
+
+.app .app__wraper .app__chats .app__chat_send .sendButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 90%;
+  margin-top: 5px;
 }
 
 .app h2 {
@@ -162,13 +229,13 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   min-height: 100vh;
-  padding: 0 4%;
+  padding: 2% 4%;
   background: -webkit-gradient(linear, left bottom, left top, from(#62d6d7), to(#f6d48d));
   background: linear-gradient(0deg, #62d6d7 0%, #f6d48d 100%);
-  margin-top: 70px;
 }
 
 .container .article_section {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -176,7 +243,6 @@ a {
       justify-content: space-around;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin-top: 20px;
   gap: 20px;
   max-width: 1200px;
 }
@@ -200,7 +266,7 @@ a {
   margin-top: 7px;
 }
 
-.container .profile__page {
+.container .container__wraper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -208,34 +274,79 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 25px;
-  text-align: center;
-  max-width: 1200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
 }
 
-.container .profile__page h2 {
+.container .container__wraper h2 {
   font-size: 25px;
-  margin: 20px 0;
+  margin: 0 0 20px 0;
 }
 
-.container .profile__page .profile__info {
+.container .container__wraper .profile__page {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 5px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  min-width: 310px;
+  width: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 25px;
+  border-radius: 10px;
 }
 
-.container .profile__page .logout {
-  margin-top: 15px;
+.container .container__wraper .profile__page .profile__info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.container .container__wraper .profile__page .profile__info .profile__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 70%;
+}
+
+.container .container__wraper .profile__page .profile__info .profile__form input {
+  display: inline-block;
+  width: 70%;
+  height: 24px;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.container .container__wraper .profile__page .profile__info .profile__form button {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-left: 10px;
+  width: 30%;
+}
+
+.container .container__wraper .profile__page .logout {
+  margin-top: 25px;
+  font-size: 20px;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .main__header {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
   z-index: 10;
   background: #94af61;
@@ -282,7 +393,16 @@ a {
   display: none;
 }
 
-.login_form {
+.form__wraper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.form__wraper .login_form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -290,28 +410,127 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-top: 35px;
-  width: 320px;
-  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 30px;
+  width: 45%;
+  min-width: 300px;
+  height: 300px;
   border: 1px solid black;
   border-radius: 20px;
-  background: radial-gradient(circle, #eeaeca 0%, #577dab 100%);
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.1);
 }
 
-.login_form input {
+.form__wraper .login_form input {
   margin-top: 20px;
   padding-left: 15px;
   font-size: 18px;
   width: 80%;
   border: 1px solid;
   border-radius: 5px;
+  height: 35px;
 }
 
-.login_form button {
+.form__wraper .login_form button {
   margin: 15px 10px;
   font-size: 18px;
+  font-weight: 600;
+  padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid;
+}
+
+.main__footer {
+  width: 100%;
+  z-index: 10;
+  background: #299393;
+}
+
+.main__footer .footer__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 0px 2%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 70px;
+  font-size: 18px;
+}
+
+.main__footer .footer__container .content__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main__footer .footer__container .content__nav a {
+  display: block;
+  font-size: 30px;
+  margin-left: 30px;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+
+.main__footer .footer__container .content__nav a:hover {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+@media (min-width: 1301px) and (max-width: 1750px) {
+  .container .container__wraper .profile__page .profile__info {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .container .container__wraper .profile__page .profile__info .profile__form {
+    margin-top: 15px;
+    width: 100%;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1300px) {
+  .form__wraper {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .form__wraper .login_form {
+    width: 100%;
+  }
+  .app .app__wraper .app__chatList {
+    width: 30%;
+  }
+  .app .app__wraper .app__chats {
+    width: 70%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 900px) {
+  .app .app__wraper .app__chatList {
+    width: 35%;
+  }
+  .app .app__wraper .app__chats {
+    width: 65%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -405,6 +624,24 @@ a {
     bottom: 50%;
     -webkit-transform: rotate(45deg) translate(0px, 50%);
             transform: rotate(45deg) translate(0px, 50%);
+  }
+  .form__wraper .login_form h3 {
+    text-align: center;
+  }
+  .main__footer .footer__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .main__footer .footer__container .footer__container_text {
+    margin-top: 15px;
+  }
+  .main__footer .footer__container .content__nav {
+    margin: 15px 0;
+  }
+  .main__footer .footer__container .content__nav a {
+    margin: 0 20px;
   }
 }
 /*# sourceMappingURL=App.css.map */

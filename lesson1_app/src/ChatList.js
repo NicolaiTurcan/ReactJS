@@ -4,8 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
-import { Button } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addChatFb, deleteChatsFb } from './store/chats/actions'
@@ -36,16 +35,22 @@ function ChatList() {
         event.preventDefault();
         dispatch(addChatFb(newChatId, chatName))
         setChatName('');
-        console.log(chatList)
     };
 
     const handleDeleteClick = (event) => {
         dispatch(deleteChatsFb(+(event.target.id)));
     }
 
+    const chatsEndRef = useRef(null);
+    const scrollToBottom = () => {
+        chatsEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+    useEffect(() => {
+        scrollToBottom();
+    }, [chatName]);
 
     return (
-        <div className='ChatList'>
+        <div className='app__chatList'>
             <List dense className={classes.root}>
                 {chatList.map((value) => {
                     return (
@@ -59,14 +64,15 @@ function ChatList() {
                                 </ListItemAvatar>
                                 <ListItemText id={value.id} primary={value.name} />
                             </Link>
-                            <button onClick={handleDeleteClick} id={value.id}>x</button>
+                            <button className="chat__button" onClick={handleDeleteClick} id={value.id}>x</button>
+                            <div ref={chatsEndRef} />
                         </ListItem>
                     );
                 })}
             </List>
-            <form onSubmit={handleClick}>
-                <input type="text" value={chatName} onChange={handleChange}></input>
-                <Button variant="contained" onClick={handleClick}>Add Chat</Button>
+            <form className='chatList__form' onSubmit={handleClick}>
+                <input type="text" placeholder="Chat Name" value={chatName} onChange={handleChange}></input>
+                <button className="chatList__button" onClick={handleClick}>Add Chat</button>
             </form>
         </div>
     )

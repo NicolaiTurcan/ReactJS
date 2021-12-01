@@ -35,16 +35,18 @@ const Profile = () => {
     return (
         <>
             <div className="container">
-                <div className="profile__page">
+                <div className="container__wraper">
                     <h2>Profile Page</h2>
-                    <div className="profile__info">
-                        <h3>Your Name is: {newUserName}</h3>
-                        <form onSubmit={handleSubmit}>
-                            <input type="text" placeholder="Your Name" value={value} onChange={handleChange}></input>
-                            <button type="submit">Submit</button>
-                        </form>
+                    <div className="profile__page">
+                        <div className="profile__info">
+                            <p>Set your name: {newUserName}</p>
+                            <form className="profile__form" onSubmit={handleSubmit}>
+                                <input type="text" placeholder="Your Name" value={value} onChange={handleChange}></input>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
+                        <button type='button' className="logout" onClick={handleLogout}>Logout</button>
                     </div>
-                    <button type='button' className="logout" onClick={handleLogout}>Logout</button>
                 </div>
             </div>
         </>
