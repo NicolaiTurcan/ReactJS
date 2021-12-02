@@ -5,7 +5,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import React, { useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addChatFb, deleteChatsFb } from './store/chats/actions'
 import { chatLists } from './store/chatsMess/selectors';
@@ -20,6 +20,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function ChatList() {
+    const params = useParams();
+    let chatId = +params.chatsId;
+
     const classes = useStyles();
 
     const dispatch = useDispatch();
@@ -50,7 +53,7 @@ function ChatList() {
     }, [chatName]);
 
     return (
-        <div className='app__chatList'>
+        <div className={(chatId ? "app__chatList _active" : "app__chatList")}>
             <List dense className={classes.root}>
                 {chatList.map((value) => {
                     return (

@@ -9,6 +9,7 @@ import { addMessageFb, initMessages } from './store/chatsMess/actions';
 import { chatMessage, messageAuthor } from './store/chats/selectors';
 import './App.css';
 import { initChats } from './store/chats/actions';
+import { NavLink } from  'react-router-dom';
 
 
 
@@ -46,13 +47,12 @@ function Chats() {
     setNewMessage('');
   }
 
-
   return (
     <div className="app">
       <h2>Chats</h2>
       <div className="app__wraper">
           <ChatList />
-          <div className='app__chats'>
+          <div className={(!chatId ? "app__chats _active" : "app__chats")}>
             {!!chatId && (
               <>
                 <div className="chat">
@@ -66,6 +66,11 @@ function Chats() {
                     <TextField autoFocus id="outlined-basic" label="Message" variant="filled" value={newMessage} onChange={handleChange} inputRef={inputRef} />
                   </div>
                   <div className="sendButton">
+                    <div>
+                      <Button variant="contained">
+                        <NavLink to="/chats">Chats</NavLink>
+                      </Button>
+                    </div>
                     <div>
                       <Button variant="contained" onClick={handleClick}>Send Message</Button>
                     </div>

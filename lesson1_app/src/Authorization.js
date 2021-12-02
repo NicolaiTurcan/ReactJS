@@ -55,7 +55,7 @@ function Authorization() {
         <div className="container">
             <div className="form__wraper">
                 <form className="login_form" onSubmit={handleSubmit}>
-                    <h3>If you have an account just login</h3>
+                    <h3>If you have an account just Login or you can use this one: mail@mail.com password"123456q"</h3>
                     <input type="text" value={loginchange} placeholder="Your Email" onChange={handleLoginChange}></input>
                     <input type="password" value={password} placeholder="Your Password" onChange={handlePassChange}></input>
                     <div>
@@ -63,7 +63,7 @@ function Authorization() {
                     </div>
                 </form>
                 <form className="login_form" onSubmit={handleSubmit}>
-                    <h3>You can register heare, just put any fake email as login</h3>
+                    <h3>You can register heare, just put any fake email (mail@mail.com) as login and a password with more than 6 characters (put numbers and letters)</h3>
                     <input type="text" value={loginchange2} placeholder="Your Email" onChange={handleLoginChange2}></input>
                     <input type="password" value={password2} placeholder="Your Password" onChange={handlePassChange2}></input>
                     <input type="password" value={check_password} placeholder="Repeat your Password" onChange={handleCheckPassChange}></input>

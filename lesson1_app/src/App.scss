@@ -96,6 +96,7 @@ a{
                         width: 90%;
                         p{
                             text-align: start;
+                            word-wrap: break-word;
                         }
                         .messageAuthor{
                             font-size: 18px;
@@ -127,7 +128,7 @@ a{
                 }
                 .sendButton{
                     display: flex;
-                    justify-content: flex-end;
+                    justify-content: space-between;
                     width: 90%;
                     margin-top: 5px;
                 }
@@ -223,10 +224,24 @@ a{
             }
         }
     }
+    .home__page{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .home__mesage{
+            max-width: 700px;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 500;
+            padding: 7px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 3px;
+        }
+    }
 }
 .main__header{
     width: 100%;
-    z-index: 10;
+    z-index: 20;
     background: #94af61;
     .header__container{
         display: flex;
@@ -237,6 +252,7 @@ a{
         min-height: 70px;
         .menu__body{
             flex-basis: 100%;
+            z-index: 9;
             .menu__list{
                 display: flex;
                 justify-content: space-between;
@@ -289,6 +305,10 @@ a{
             padding: 5px 10px;
             border-radius: 5px;
             border: 1px solid;
+        }
+        h3{
+            max-width: 80%;
+            text-align: center;
         }
     }
 }
@@ -353,6 +373,13 @@ a{
             }
         }
     }
+    .container{
+        .container__wraper{
+            .profile__page{
+                width: 85%;
+            }
+        }
+    }
 }
 @media (min-width: 768px) and (max-width: 900px) {
     .app{
@@ -365,6 +392,13 @@ a{
             }
         }
     }
+    .container{
+        .container__wraper{
+            .profile__page{
+                width: 100%;
+            }
+        }
+    }
 }
 @media (max-width: 767px){
     .main__header{
@@ -372,7 +406,7 @@ a{
         justify-content: flex-end;
             .menu__body{
                 display: flex;
-                align-items: center;
+                align-items: start;
                 position: fixed;
                 top: 0;
                 left: -100%;
@@ -397,7 +431,7 @@ a{
                 left: 0;
             }
             .menu__icon{
-                z-index: 5;
+                z-index: 10;
                 display: block;
                 position: relative;
                 width: 35px;
@@ -459,6 +493,45 @@ a{
                 margin: 15px 0;
                 a{
                     margin: 0 20px;
+                }
+            }
+        }
+    }
+    .app{
+        h2{
+            margin-top: 10px;
+        }
+        .app__wraper{
+            margin-top: 10px;
+            height: 75vh;
+            .app__chatList{
+                align-items: center;
+                width: 100%;
+                
+            }
+            .app__chatList._active{
+                display: none;
+            }
+            .app__chats{
+                width: 100%;
+                
+            }
+            .app__chats._active{
+                display: none;
+            }
+        }
+    }
+    .container{
+        .container__wraper{
+            .profile__page{
+                width:100%;
+                .profile__info{
+                    flex-direction: column;
+                    align-items: center;
+                    .profile__form{
+                        margin-top: 10px;
+                        width: 100%;
+                    }
                 }
             }
         }
