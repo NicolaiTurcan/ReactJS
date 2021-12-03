@@ -11,7 +11,7 @@ a{
 
 .app{
     background: linear-gradient(0deg, rgba(98,214,215,1) 0%, rgba(246,212,141,1) 100%);
-    min-height:  90vh;
+    height:  100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -26,6 +26,7 @@ a{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: center;
             border-radius: 1rem;
             width: 20%;
             padding: 5px 10px;
@@ -36,7 +37,7 @@ a{
                 background: transparent;
                 margin-bottom: 10px;
                 height: 95%;
-                overflow: scroll;
+                overflow-y: scroll;
                 .MuiListItem-button{
                     background:rgba(0, 0, 0, 0.2);
                     border-radius: 5px;
@@ -83,7 +84,7 @@ a{
                 align-items: center;
                 width: 100%;
                 height: 100%;
-                overflow: scroll;
+                overflow-y: scroll;
                 .chat_element{
                     display: flex;
                     justify-content: space-between;
@@ -549,3 +550,7 @@ a{
         }
     }
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
